@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #05060b;
+  color: #edeff7;
+  font-family: var(--font-inter), sans-serif;
+}
+
+::selection {
+  background: rgba(76, 125, 255, 0.35);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid #7c9cff;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Slim, quiet scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #05060b;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1d2b;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #262a3d;
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .glass-panel-hover {
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  }
+  .glass-panel-hover:hover {
+    background: rgba(255, 255, 255, 0.075);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 20%, #b9c4ff 55%, #c9b3ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7c9cff;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #4c7dff, #9b6bff);
+    color: #f7f8ff;
+    font-weight: 600;
+    box-shadow: 0 8px 30px rgba(76, 125, 255, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(124, 107, 255, 0.45);
+    filter: brightness(1.06);
+  }
+  .btn-primary:active {
+    transform: translateY(0px) scale(0.98);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #edeff7;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

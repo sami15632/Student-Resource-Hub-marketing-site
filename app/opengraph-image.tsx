@@ -1,0 +1,10 @@
+import { ImageResponse } from "next/og";
+import { OgCard } from "@/lib/og-image";
+
+export const alt = "Student Resource Hub — Learn. Share. Grow.";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+export default async function Image() {
+  return new ImageResponse(<OgCard />, { ...size });
+}
