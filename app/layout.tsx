@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     site: "@studentresourc",
     creator: "@studentresourc",
   },
-  robots: {
+robots: {
     index: true,
     follow: true,
     googleBot: {
@@ -80,6 +80,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
       "max-video-preview": -1,
     },
+  },
+  verification: {
+    google: "kyP5KQ0-oVwzjXdcWXUepyA3UVMhwPKayFnKcYOUd20",
   },
 };
 
